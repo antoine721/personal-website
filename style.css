@@ -1,0 +1,379 @@
+@font-face {
+    font-family: "title-font";
+    src: url('fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: "text-font";
+    src: url('fonts/Nunito/static/Nunito-Medium.ttf');
+    font-weight: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    font-family: "text-font";
+    color: azure;
+    padding: 0;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+header h1{
+    font-family: "title-font";
+    margin: 0;
+    color: #3DCCC7;
+    font-size: 350%;
+    text-align: center;
+    margin-top: 20px;
+    align-items: center;
+    
+}
+
+header p {
+    margin-top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 40px;
+    align-items: center;
+    background-color: #3dccc742;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: azure;
+}
+
+
+nav a {
+  --c:linear-gradient(#3DCCC7 0 0);  
+  padding-bottom: .15em;
+  background: var(--c), var(--c);
+  background-size: .3em .0em;
+  background-position:50% 100%;
+  background-repeat: no-repeat;
+  transition: .3s linear, background-size .3s .2s linear;
+}
+nav a:hover {
+  color: rgb(199, 199, 199);
+  background-size: 50% .2em;
+  background-position: 10% 100%, 90% 100%;
+}
+
+
+.all {
+    background-image:url(abstrait-image.jpg);
+    background-size: cover;
+    width: 100%;
+    position: relative;
+}
+
+.all .content h1 {
+    padding: 30px;
+    margin-top: 30px;
+    font-family: "title-font";
+    font-size: 200%;
+    text-align: center;
+}
+
+.all .content p {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.all .blackbox {
+    background-color: black;
+
+    width: 100%;
+}
+
+
+
+*{
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  max-width: 1170px;
+  margin:auto;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul{
+  list-style: none;
+}
+footer{
+  background-color: #000000;
+  padding: 70px 0;
+}
+.footer-col{
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4{
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: -10px;
+  background-color: #3DCCC7;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+
+/*responsive*/
+
+
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+
+/* formulaire contact */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body, button, input {
+
+    font-weight: 700;
+    letter-spacing: 1.4px;
+  }
+  
+  .background {
+    display: flex;
+    min-height: 60vh;
+  }
+  
+  .container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 10px;
+  }
+  
+  .screen {
+    position: relative;
+    background: #3e3e3e;
+    border-radius: 15px;
+  }
+  
+  .screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+  }
+  
+  .screen-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #4d4d4f;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .screen-header-left {
+    margin-right: auto;
+  }
+
+  
+  .screen-body {
+    display: flex;
+  }
+  
+  .screen-body-item {
+    flex: 1;
+    padding: 50px;
+  }
+  
+  .screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #3DCCC7;
+    font-size: 26px;
+  }
+  
+  .app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: #3DCCC7;
+  }
+  
+  .app-contact {
+    margin-top: auto;
+    font-size: 8px;
+    color: #888;
+  }
+  
+  .app-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .app-form-group.message {
+    margin-top: 40px;
+  }
+  
+  .app-form-group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  
+  .app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+  }
+  
+  .app-form-control::placeholder {
+    color: #666;
+  }
+  
+  .app-form-control:focus {
+    border-bottom-color: #ddd;
+  }
+  
+  .app-form-button {
+    background: none;
+    border: none;
+    color: #3DCCC7;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .app-form-button:hover {
+    color: #3DCCC7;
+  }
+  
+  .credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #b0f9f7;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  
+  .credits-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .dribbble {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+  }
+  
+  @media screen and (max-width: 520px) {
+    .screen-body {
+      flex-direction: column;
+    }
+  
+    .screen-body-item.left {
+      margin-bottom: 30px;
+    }
+  
+    .app-title {
+      flex-direction: row;
+    }
+  
+    .app-title span {
+      margin-right: 12px;
+    }
+  
+    .app-title:after {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .screen-body {
+      padding: 40px;
+    }
+  
+    .screen-body-item {
+      padding: 0;
+    }
+  }
+
+ 

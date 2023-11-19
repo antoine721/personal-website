@@ -1,0 +1,216 @@
+@font-face {
+    font-family: "title-font";
+    src: url('fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: "text-font";
+    src: url('fonts/Nunito/static/Nunito-Medium.ttf');
+    font-weight: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    font-family: "text-font";
+    color: azure;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 40px;
+    align-items: center;
+    background-color: #3dccc742;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: azure;
+}
+
+
+nav a {
+  --c:linear-gradient(#3DCCC7 0 0);  
+  padding-bottom: .15em;
+  background: var(--c), var(--c);
+  background-size: .3em .0em;
+  background-position:50% 100%;
+  background-repeat: no-repeat;
+  transition: .3s linear, background-size .3s .2s linear;
+}
+nav a:hover {
+  color: rgb(199, 199, 199);
+  background-size: 50% .2em;
+  background-position: 10% 100%, 90% 100%;
+}
+
+header h1 {
+    font-family: "title-font";
+    margin: 0;
+    color: #3DCCC7;
+    font-size: 350%;
+    text-align: center;
+    margin-top: 20px;
+    align-items: center;
+}
+
+
+.all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image:url(abstrait-image.jpg);
+    background-size: cover;
+    width: 100%;
+    position: relative;
+}
+
+.all .blackboxup {
+    background-color: black;
+    height: 2.2vh;
+    width: 100%;
+}
+
+.all .blackboxdown {
+    background-color: black;
+    height: 2.2vh;
+    width: 100%;
+}
+
+.imgPerso {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+main {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+header p {
+    margin-top: 0;
+}
+
+
+.bandeau {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.bandeau img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.profile-image {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    width: 10%;
+    justify-content: center;
+}
+
+/*FOOTER*/
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container{
+    max-width: 1170px;
+    margin:auto;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul{
+    list-style: none;
+  }
+  footer{
+    background-color: #292929;
+    padding: 70px 0;
+  }
+  .footer-col{
+    width: 25%;
+    padding: 0 15px;
+  }
+  .footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+  }
+  .footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #3DCCC7;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+  }
+  .footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+  }
+  
+  .footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  .footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+  }
+  
+  
+  /*responsive*/
+  
+  
+  @media(max-width: 767px){
+    .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+  }
+  }
+  @media(max-width: 574px){
+    .footer-col{
+      width: 100%;
+  }
+  }
+
+.profile-content h1 {
+        font-family: "title-font";
+        margin: 0;
+        color: #3DCCC7;
+        font-size: 350%;
+        text-align: center;
+        margin-top: 20px;
+        align-items: center;
+    }
