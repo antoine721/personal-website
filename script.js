@@ -62,3 +62,16 @@ function validerInscription() {
         console.log('Veuillez remplir tous les champs.');
     }
 }
+
+
+
+
+function toggleMenu() {
+    var burgerMenu = document.querySelector('.burger-menu');
+    burgerMenu.classList.toggle('active');
+
+    var navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(function(link) {
+      link.style.display = link.style.display === 'none' ? 'block' : 'none';
+    });
+  }

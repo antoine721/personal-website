@@ -342,3 +342,48 @@ form {
   padding:5px;
 
 }
+
+/* Styles pour le menu burger */
+.burger-menu {
+  display: none; /* Par défaut, le menu burger est masqué */
+  cursor: pointer;
+}
+
+.burger-menu .bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Affichage du menu burger uniquement pour les écrans de petite taille */
+@media (max-width: 767px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: none; /* Masque les liens du menu principal */
+  }
+
+  .burger-menu {
+    display: block; /* Affiche le menu burger */
+  }
+
+  /* Styles pour afficher le menu burger */
+  .burger-menu.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
