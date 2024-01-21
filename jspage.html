@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="jspage.css" />
+    <title>main</title>
+  </head>
+  <body>
+    <div class="all">
+      <form name="mytheme">
+        
+      <header>
+        <label class="btToggle">
+          <span class="btn">
+              <input type="checkbox" name="theme-mode" id="themeToggle">
+              <span class="slider"></span>
+          </span> 
+          <span class="label">Mode</span>
+      </label>
+  </form>
+        <h1>MY OWN WEBSITE</h1>
+        <p>bienvenue sur mon site web</p>
+      </header>
+      <div class="blackbox"></div>
+      <nav>
+        <a href="index.html">Menu</a>
+        <a href="about.html">About Me</a>
+        <a href="voyages.html">Voyages</a>
+        <a href="joke.html">JOKE</a>
+        <a href="jspage.html">JsPage</a>
+      </nav>
+      <div class="blackbox"></div>
+      <div class="content">
+        
+      </div>
+
+    <div class="exo1">
+      <h1>Cours de js</h1>
+        <p>petit cours de js pour montrer que j'ai compris</p>
+        <h1>Slider - 3 points</h1>
+        <p>En haut de la page, créer un slider grâce à la librairie swiper.
+        Il contiendra 3 slides avec une image de fond, et à chaque fois, un titre et un
+        petit texte de votre choix mettant en avant le JPO (visites, ateliers…).
+        Le titre et texte seront centrés verticalement et horizontalement sur le slide
+        grâce à du flex.</p>
+        <h1>Étape 1 : Mise en place du HTML</h1>
+        <pre>
+          <code>
+            &lt;div id="slider-container"&gt;
+            &lt;div id="slider"&gt;
+                &lt;div class="slide" &gt;&lt;img src="images/1.jpg" alt=""&gt;&lt;/div&gt;
+                &lt;div class="slide" &gt;&lt;img src="images/2.jpg" alt=""&gt;&lt;/div&gt;
+                &lt;div class="slide" &gt;&lt;img src="images/3.jpg" alt=""&gt;&lt;/div&gt;
+                &lt;div class="slide" &gt;&lt;img src="images/4.jpg" alt=""&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id="prev"&gt;&amp;lt;&lt;/div&gt;
+            &lt;div id="next"&gt;&amp;gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+          </code>
+      </pre>
+      <h1>Étape 2 : Style avec CSS</h1>
+      <p>Ajoutons quelques styles CSS pour rendre notre slider plus esthétique. Vous pouvez personnaliser ces styles selon vos préférences.</p>
+      <pre>
+        <code>
+          #slider-container {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+          }
+          
+          #slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+          }
+          
+          .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          #prev, #next {
+            position: absolute;
+            top: 50%;
+            font-size: 50px;
+            cursor: pointer;
+            z-index: 1;
+            transform: translateY(-50%);
+          }
+          
+          #prev {
+            left: 5px;
+            color: #000;
+          }
+          
+          #next {
+            right: 5px;
+            color: #000;
+          }
+          
+          .slide img {
+            width: 80%; /* Use 100% to make sure the image takes the full width of the container */
+            height: auto;
+            object-fit: contain; /* or "cover" depending on your preference */
+            display: block;
+          }          
+
+        </code>
+      </pre>
+    <h1>Étape 3 : Ajout de la logique JavaScript</h1>
+    <p>Passons maintenant à la partie JavaScript. Nous allons utiliser JavaScript pour rendre notre slider interactif en permettant la navigation entre les diapositives.</p>
+  <pre>
+    <code>
+      const slider = document.getElementById('slider');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+
+    let currentIndex = 0;
+
+    function updateSlider() {
+        const newPosition = -currentIndex * 100 + '%';
+        slider.style.transform = 'translateX(' + newPosition + ')';
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slider.children.length;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+        updateSlider();
+    }
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+    
+    </code>
+  </pre>
+<h1>Exemple du slider</h1>
+<div class="boxexo1">
+  <div id="slider-container">
+    <div id="slider">
+        <div class="slide" ><img src="images/1.jpg" alt=""></div>
+        <div class="slide" ><img src="images/2.jpg" alt=""></div>
+        <div class="slide" ><img src="images/3.jpg" alt=""></div>
+        <div class="slide" ><img src="images/4.jpg" alt=""></div>
+        <!-- Add more slides as needed -->
+    </div>
+    <div id="prev">&lt;</div>
+    <div id="next">&gt;</div>
+</div>
+</div>
+</div>
+
+  
+    <div class="exo2">
+      <h1>Tabs - 7 points</h1>
+      <h1>Étape 1 : Mise en place du HTML</h1>
+      <p>Commençons par créer la structure de base de notre formulaire en HTML. Nous aurons besoin de différents types de champs pour la saisie d'informations.</p>
+      <pre>
+        <code>
+          &lt;ul class="tabs"&gt;
+          &lt;li class="tab tab-active JeuxVidéo"&gt;Jeux Vidéo&lt;/li&gt;
+          &lt;li class="tab CommunicationDigitale"&gt;Communication Digitale&lt;/li&gt;
+          &lt;li class="tab Animation3D"&gt;Animation 3D&lt;/li&gt;
+          &lt;li class="tab CodingDigitalInnovation"&gt;Coding &amp; Digital Innovation&lt;/li&gt;
+          &lt;li class="tab CréationDesign"&gt;Création &amp; Design&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;div class="content active JeuxVidéo"&gt;
+          &lt;p&gt;Contenu pour l'Axe Jeux Vidéo.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content CommunicationDigitale"&gt;
+          &lt;p&gt;Contenu pour l'Axe Communication Digitale.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content Animation3D"&gt;
+          &lt;p&gt;Contenu pour l'Axe Animation 3D.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content CodingDigitalInnovation"&gt;
+          &lt;p&gt;Contenu pour l'Axe Coding &amp; Digital Innovation.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="content CréationDesign"&gt;
+          &lt;p&gt;Contenu pour l'Axe Création &amp; Design.&lt;/p&gt;
+      &lt;/div&gt;
+      
+        </code>
+    </pre>
+    <h1>Étape 2 : Style avec CSS</h1>
+    <p>Ajoutons quelques styles CSS pour rendre notre formulaire plus attrayant. Vous pouvez personnaliser ces styles selon vos préférences.</p>
+    <pre>
+      <code>
+        .tabs {
+          list-style: none;
+          display: flex;
+          margin: 0;
+          padding: 0;
+      }
+
+      .tab {
+          cursor: pointer;
+          padding: 10px 20px;
+          margin-right: 5px;
+          border: 1px solid #ddd;
+          background-color: #f1f1f1;
+      }
+
+      .tab-active {
+          background-color: #ddd;
+      }
+
+      .content {
+          display: none;
+          padding: 20px;
+          border: 1px solid #ddd;
+      }
+
+      .active {
+          display: block;
+      }
+
+      .JeuxVidéo, .tab-active.JeuxVidéo {
+          background-color: lightblue;
+      }
+
+      .CommunicationDigitale, .tab-active.CommunicationDigitale {
+          background-color: lightgreen;
+      }
+
+      .Animation3D, .tab-active.Animation3D {
+          background-color: lightcoral;
+      }
+
+      .CodingDigitalInnovation, .tab-active.CodingDigitalInnovation {
+          background-color: lightsalmon;
+      }
+
+      .CréationDesign, .tab-active.CréationDesign {
+          background-color: lightgoldenrodyellow;
+      }
+      </code>
+    </pre>
+  <h1>Étape 3 : Ajout de la logique JavaScript</h1>
+  <p>Ajoutons maintenant un peu de logique JavaScript pour rendre notre formulaire interactif. Nous allons écouter l'événement de soumission du formulaire et afficher les données saisies dans la console pour l'instant.</p>
+  <pre>
+    <code>
+      const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('tab-active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            this.classList.add('tab-active');
+            
+            const axeClass = this.classList[1]; // Utilisez la deuxième classe pour l'axe (JeuxVidéo, CommunicationDigitale, etc.)
+            const content = document.querySelector(`.content.${axeClass}`);
+            content.classList.add('active');
+        });
+    });
+    </code>
+  </pre>
+  <h1>Exemple de tabs</h1>
+  <div class="boxexo2">
+    <ul class="tabs">
+      <li class="tab tab-active JeuxVidéo">Jeux Vidéo</li>
+      <li class="tab CommunicationDigitale">Communication Digitale</li>
+      <li class="tab Animation3D">Animation 3D</li>
+      <li class="tab CodingDigitalInnovation">Coding & Digital Innovation</li>
+      <li class="tab CréationDesign">Création & Design</li>
+  </ul>
+  
+  <div class="content active JeuxVidéo">
+      <p>Contenu pour l'Axe Jeux Vidéo.</p>
+  </div>
+  <div class="content CommunicationDigitale">
+      <p>Contenu pour l'Axe Communication Digitale.</p>
+  </div>
+  <div class="content Animation3D">
+      <p>Contenu pour l'Axe Animation 3D.</p>
+  </div>
+  <div class="content CodingDigitalInnovation">
+      <p>Contenu pour l'Axe Coding & Digital Innovation.</p>
+  </div>
+  <div class="content CréationDesign">
+      <p>Contenu pour l'Axe Création & Design.</p>
+  </div>
+  </div>
+    </div>
+    <div class="exo3">
+      <h1>Formulaire et JS - 6 points</h1>
+      <h1>Mise en place du HTML</h1>
+      <p>Commençons par créer la structure de base de notre menu burger en HTML. Nous aurons besoin d'un bouton pour activer/désactiver le menu et d'une liste pour les liens du menu.</p>
+      <pre>
+        <code>
+          &lt;form id="inscriptionForm"&gt;
+          &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+          &lt;input type="text" id="nom" name="nom" required autocomplete="name"&gt;
+      
+          &lt;label for="prenom"&gt;Prénom :&lt;/label&gt;
+          &lt;input type="text" id="prenom" name="prenom" required autocomplete="given-name"&gt;
+      
+          &lt;label for="email"&gt;Email :&lt;/label&gt;
+          &lt;input type="email" id="email" name="email" required autocomplete="email"&gt;
+      
+          &lt;label&gt;Classe actuelle :&lt;/label&gt;
+          &lt;label&gt;&lt;input type="radio" id="classe1ere" name="classe" value="1ere" required&gt; 1ère&lt;/label&gt;
+          &lt;label&gt;&lt;input type="radio" id="classeTle" name="classe" value="Tle" required&gt; Terminale&lt;/label&gt;
+      
+          &lt;label for="axe"&gt;Axe préféré :&lt;/label&gt;
+          &lt;select id="axe" name="axe" required autocomplete="on"&gt;
+              &lt;option value="" disabled selected&gt;Choisissez un axe&lt;/option&gt;
+              &lt;option value="JeuxVidéo"&gt;Jeux Vidéo&lt;/option&gt;
+              &lt;option value="CommunicationDigitale"&gt;Communication Digitale&lt;/option&gt;
+              &lt;option value="Animation3D"&gt;Animation 3D&lt;/option&gt;
+              &lt;option value="CodingDigitalInnovation"&gt;Coding &amp; Digital Innovation&lt;/option&gt;
+              &lt;option value="CréationDesign"&gt;Création &amp; Design&lt;/option&gt;
+          &lt;/select&gt;
+      
+          &lt;button type="button" onclick="validerInscription()"&gt;S'inscrire&lt;/button&gt;
+      &lt;/form&gt;
+      
+        </code>
+    </pre>
+    <h1>Étape 2 : Style avec CSS</h1>
+      <p>Ajoutons quelques styles CSS pour rendre notre menu burger plus attrayant. Vous pouvez personnaliser ces styles selon vos préférences.</p>
+      <pre>
+        <code>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        </code>
+      </pre>
+      <h1>Étape 3 : Ajout de la logique JavaScript</h1>
+      <p>Ajoutons maintenant la logique JavaScript pour rendre notre menu burger interactif. Nous allons écouter l'événement de clic sur le bouton burger et basculer la classe pour afficher/cacher le menu.
+      </p>
+      <pre>
+        <code>
+          function validerInscription() {
+            var nom = document.getElementById('nom').value;
+            var prenom = document.getElementById('prenom').value;
+            var email = document.getElementById('email').value;
+            var classe1ere = document.getElementById('classe1ere');
+            var classeTle = document.getElementById('classeTle');
+            var axe = document.getElementById('axe').value;
+    
+            if (nom && prenom && email && (classe1ere.checked || classeTle.checked) && axe) {
+                var resultat = {
+                    Nom: nom,
+                    Prénom: prenom,
+                    Email: email,
+                    Classe: classe1ere.checked ? "1ère" : "Terminale",
+                    Axe: axe
+                };
+    
+                console.log(resultat);
+                // Ajoutez ici le code pour envoyer les données à votre serveur, par exemple.
+            } else {
+                console.log('Veuillez remplir tous les champs.');
+            }
+        }
+        </code>
+      </pre>
+    
+    <div class="boxexo3">
+      <form id="inscriptionForm">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required autocomplete="name">
+    
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required autocomplete="given-name">
+    
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+    
+        <label>Classe actuelle :</label>
+        <label><input type="radio" id="classe1ere" name="classe" value="1ere" required> 1ère</label>
+        <label><input type="radio" id="classeTle" name="classe" value="Tle" required> Terminale</label>
+    
+        <label for="axe">Axe préféré :</label>
+        <select id="axe" name="axe" required autocomplete="on">
+            <option value="" disabled selected>Choisissez un axe</option>
+            <option value="JeuxVidéo">Jeux Vidéo</option>
+            <option value="CommunicationDigitale">Communication Digitale</option>
+            <option value="Animation3D">Animation 3D</option>
+            <option value="CodingDigitalInnovation">Coding & Digital Innovation</option>
+            <option value="CréationDesign">Création & Design</option>
+        </select>
+    
+        <button type="button" onclick="validerInscription()">S'inscrire</button>
+    </form>
+  </div>
+    </div>  
+
+  </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>AMIS</h4>
+            <ul>
+              <li><a href="#">ad aka ad laurent</a></li>
+              <li><a href="#">Tbo</a></li>
+              <li><a href="#">tinounours</a></li>
+              <li><a href="#">kyky</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Aide</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">règles</a></li>
+              <li><a href="#">crédits</a></li>
+              <li><a href="#">licence</a></li>
+              <li><a href="#">donation</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Ecole</h4>
+            <ul>
+              <li><a href="#">EMLV</a></li>
+              <li><a href="#">IIM</a></li>
+              <li><a href="#">ESILV</a></li>
+              <li><a href="#">Pôle léonard de vinci</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>passions</h4>
+            <ul>
+              <li><a href="#">dj</a></li>
+              <li><a href="#">foot</a></li>
+              <li><a href="#">F1</a></li>
+              <li><a href="#">musique</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="slider.js"></script>
+    <script src="script.js"></script>
+    <script src="tabs.js"></script>
+  </body>
+</html>

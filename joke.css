@@ -25,7 +25,7 @@ nav {
   width: 100%;
   min-height: 40px;
   align-items: center;
-  background-color: #3dccc742;
+  background-color: #3dccc79d;
 }
 
 nav a {
@@ -251,4 +251,167 @@ footer {
   .footer-col {
     width: 100%;
   }
+}
+
+
+body.dark-mode {
+  background-color: white;
+}
+
+
+body.dark-mode .all{
+  background-image: url(images/abstrait-image-white-mode.jpg);
+}
+
+/* Styles spécifiques pour le texte dans le mode sombre */
+body.dark-mode h1 {
+  color: #872A1C
+}
+
+body.dark-mode p {
+  color: black;
+}
+
+body.dark-mode .exo1,
+body.dark-mode .exo2,
+body.dark-mode .exo3,
+body.dark-mode .exo4{
+  background-color: #ffffff;
+}
+
+body.dark-mode .exo1 pre,
+body.dark-mode .exo2 pre,
+body.dark-mode .exo3 pre,
+body.dark-mode .exo4 pre {
+    background-color: #CCCCCC; 
+    padding: 10px;
+    color: #872A1C;
+    overflow-x: auto; 
+}
+
+
+body.dark-mode .exo1 code,
+body.dark-mode .exo2 code,
+body.dark-mode .exo3 code,
+body.dark-mode .exo4 code {
+    background-color: #CCCCCC; 
+    color: #872A1C; 
+    display: block; 
+    padding: 10px;
+    line-height: 1.5; 
+}
+
+
+
+body.dark-mode nav{
+  background-color: #872a1cae;
+}
+
+body.dark-mode footer{
+  background-color: #CCCCCC;
+}
+
+body.dark-mode footer a {
+  color: #444444;
+}
+
+body.dark-mode .footer-col ul li a:hover {
+  color: black;
+} 
+
+body.dark-mode h4{
+  color: black;
+}
+body.dark-mode .footer-col h4::before{
+  background-color:#872A1C;
+}
+
+body.dark-mode span{
+  color: #872A1C;
+}
+body.dark-mode .screen{
+  background-color: #CCCCCC;
+}
+
+body.dark-mode .app-title:after {
+  background: #872A1C;
+
+}
+
+body.dark-mode .app-form-button{
+  color: #872A1C;
+}
+
+body.dark-mode .blackboxdown {
+  background-color: transparent;
+}
+
+body.dark-mode .bar.front::before {
+  background-color:#872A1C;
+}
+body.dark-mode .bar.back::before {
+  background-color:#872A1C;
+}
+
+body.dark-mode .bar::before{
+  background-color: #872A1C;
+}
+
+.btToggle .btn {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  line-height : 34px;
+  color:#fff;
+}
+
+
+.btToggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.btToggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0; 
+  bottom: 0;
+   right:0;
+  background-color: #000;  
+  border-radius: 34px; 
+  white-space : nowrap;
+}
+
+.btToggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white; 
+  border-radius: 50%;
+}
+
+.btToggle input:checked + .slider {
+  background-color: #fff; 
+}
+
+.btToggle input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+  color:#000;
+}
+
+.btToggle input:checked + .slider:before {
+  right:4px;
+  left:auto;
+  background-color: #000;
+}
+
+form {
+  padding:5px;
+
 }
